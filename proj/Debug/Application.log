@@ -1,0 +1,15 @@
+﻿Build started 03/06/2017 1:56:39 CH.
+     1>Project "C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\Application.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../bin\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../bin /LIBPATH:C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../lib/SDL2_image/lib/x86 /LIBPATH:C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../lib/SDL2/lib/x86 /LIBPATH:C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../lib/SDL2_mixer/lib/x86 /LIBPATH:C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../lib/SDL2_ttf/lib/x86 /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" SDL2.lib SDL2main.lib SDL2_image.lib SDL2_mixer.lib SDL2_ttf.lib Engine.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../bin\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../bin\Application.lib" /MACHINE:X86 Debug\CMainScence.obj
+         Debug\CPlayScence.obj
+         Debug\main.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Application.vcxproj -> C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\/../bin\Application.exe
+     1>Done Building Project "C:\Users\mtSiniChi\Dropbox\STDIO\GameEngine\proj\Application.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.99
