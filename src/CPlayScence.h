@@ -27,4 +27,8 @@ private:
 
 	CSprite * m_sprite;
 	CSprite* m_spriteHai;
+
+	SDL_Rect m_posSprite;
+	bool m_up;
+	bool m_down;
 };
