@@ -93,7 +93,6 @@ void CSprite::drawSpriteAnimation(int x, int y)
 	scope.h = l_front->getFrame().h;
 
 	SDL_RenderCopy(CRenderer::getInstance()->getSDLRenderer(), m_texture, &scope, &dest);
-//	printf("---------%d\n", m_indexSprite);
 
 	m_indexSprite = (m_indexSprite + 1) % (8 + 1); // index end frame
 }

@@ -53,6 +53,8 @@ void CPlayScence::update(float dt)
 	{
 		m_posSprite.y -= 35;
 
+		printf("afasdf");
+
 		if (m_posSprite.y < 120)
 		{
 			m_up = false;
@@ -78,10 +80,22 @@ void CPlayScence::render()
 
 	CRenderer::getInstance()->DrawImage(m_image, 2, 2);
 
-	m_sprite->setFrame("jump-up.png");
-	m_sprite->drawSprite(m_posSprite.x, m_posSprite.y);
+	if (m_up)
+	{
+		m_sprite->setFrame("jump-up.png");
+		m_sprite->drawSprite(m_posSprite.x, m_posSprite.y);
+	}
 
-	m_sprite->drawSpriteAnimation(400, 50);
+	if (!m_up && !m_down)
+	{
+		m_sprite->drawSpriteAnimation(100, 350);
+	}
+
+	if (m_down)
+	{
+		m_sprite->setFrame("jump-down.png");
+		m_sprite->drawSprite(m_posSprite.x, m_posSprite.y);
+	}
 
 	//	m_spriteHai->drawSprite(350, 140);
 }
