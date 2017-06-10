@@ -41,7 +41,6 @@ void CPlayScence::update(float dt)
 	CManageScence::getInstance()->setScenceNext(new CMainScence());
 	}*/
 
-
 	if (CInput::getInstance()->isPressKeyDown(SDLK_UP))
 	{
 		m_up = true;
@@ -50,28 +49,26 @@ void CPlayScence::update(float dt)
 		printf("asdfasdfasdfsdf");
 	}
 
-	//if (m_up == true)
-	//{
-	//	// 360
-	//	if (m_possprite.y >= (200) && (m_down == false))
-	//	{
-	//		//	m_possprite.x += 1;
-	//		m_possprite.y -= 10;
-	//	}
+	if (m_up)
+	{
+		m_posSprite.y -= 35;
 
-	//	if (m_possprite.y < (200))
-	//	{
-	//		m_down == true;
-	//		m_possprite.y += 10;
-	//	//	m_possprite.x = 10;
-	//	}
-	//	
-	//	if (m_possprite.y == 360)
-	//	{
-	//		m_up = false;
-	//		m_down == false;
-	//	}
-	//}
+		if (m_posSprite.y < 120)
+		{
+			m_up = false;
+			m_down = true;
+		}
+	}
+
+	if (m_down)
+	{
+		m_posSprite.y += 20;
+
+		if (m_posSprite.y > 360)
+		{
+			m_down = false;
+		}
+	}
 }
 
 void CPlayScence::render()
