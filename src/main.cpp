@@ -10,11 +10,13 @@ int SDL_main(int argc, char *argv[])
 {
 	CApplication app;
 
-	app.init(1215, 650, "mtSiniChi");
+	app.init(1248, 655, "mtSiniChi");
+	//app.init(1215, 650, "mtSiniChi");
+	//app.init(1344, 717, "mtSiniChi");
 
 	app.setStartScene(new CPlayScence());
 
-	app. run(10);
+	app. run(50);
 
 	app.teminate();
 

@@ -38,7 +38,10 @@ public:
 	bool loadSprite(const char* _pathSprite, const char* _pathConfig);
 
 	void drawSprite(int x, int y);
+	void drawSprite(int x, int y, float _scale);
+
 	void drawSpriteAnimation(int x, int y);
+	void drawSpriteAnimation(int x, int y, float _scale);
 
 	void setFrame(string _nameFrame);
 

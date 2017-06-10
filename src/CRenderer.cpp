@@ -114,6 +114,17 @@ void CRenderer::DrawImage(CImage* image, int x, int y)
 	SDL_RenderCopy(m_renderer, image->getSDLTexture(), &image->getSize(), &dest);
 }
 
+void CRenderer::DrawImage(CImage* image, int x, int y, float _scale)
+{
+	SDL_Rect dest;
+	dest.x = x;
+	dest.y = y;
+	dest.w = image->getWidth() * _scale;
+	dest.h = image->getHeight() * _scale;
+
+	SDL_RenderCopy(m_renderer, image->getSDLTexture(), &image->getSize(), &dest);
+}
+
 void CRenderer::drawText(CText* _text, int x, int y)
 {
 	SDL_Rect dest;

@@ -57,8 +57,8 @@ void CSprite::drawSprite(int x, int y)
 	SDL_Rect dest;
 	dest.x = x;
 	dest.y = y;
-	dest.w = m_frameCurrent->getFrame().w;
-	dest.h = m_frameCurrent->getFrame().h;
+	dest.w = m_frameCurrent->getFrame().w; // * 0.8
+	dest.h = m_frameCurrent->getFrame().h; // * 0.8
 
 	SDL_Rect scope;
 	scope.x = m_frameCurrent->getFrame().x;
@@ -69,6 +69,22 @@ void CSprite::drawSprite(int x, int y)
 	SDL_RenderCopy(CRenderer::getInstance()->getSDLRenderer(), m_texture, &scope, &dest);
 }
 
+void CSprite::drawSprite(int x, int y, float _scale)
+{
+	SDL_Rect dest;
+	dest.x = x;
+	dest.y = y;
+	dest.w = m_frameCurrent->getFrame().w * _scale; // * 0.8
+	dest.h = m_frameCurrent->getFrame().h * _scale; // * 0.8
+
+	SDL_Rect scope;
+	scope.x = m_frameCurrent->getFrame().x;
+	scope.y = m_frameCurrent->getFrame().y;
+	scope.w = m_frameCurrent->getFrame().w;
+	scope.h = m_frameCurrent->getFrame().h;
+
+	SDL_RenderCopy(CRenderer::getInstance()->getSDLRenderer(), m_texture, &scope, &dest);
+}
 
 void CSprite::drawSpriteAnimation(int x, int y)
 {
@@ -85,6 +101,33 @@ void CSprite::drawSpriteAnimation(int x, int y)
 	dest.y = y;
 	dest.w = l_front->getFrame().w;
 	dest.h = l_front->getFrame().h;
+
+	SDL_Rect scope;
+	scope.x = l_front->getFrame().x;
+	scope.y = l_front->getFrame().y;
+	scope.w = l_front->getFrame().w;
+	scope.h = l_front->getFrame().h;
+
+	SDL_RenderCopy(CRenderer::getInstance()->getSDLRenderer(), m_texture, &scope, &dest);
+
+	m_indexSprite = (m_indexSprite + 1) % (8 + 1); // index end frame
+}
+
+void CSprite::drawSpriteAnimation(int x, int y, float _scale)
+{
+	if (m_indexSprite == 0)
+	{
+		m_indexSprite = 3; // index start frame
+	}
+
+	auto l_front = m_listFrame.begin();
+	advance(l_front, m_indexSprite);
+
+	SDL_Rect dest;
+	dest.x = x;
+	dest.y = y;
+	dest.w = l_front->getFrame().w * _scale;
+	dest.h = l_front->getFrame().h * _scale;
 
 	SDL_Rect scope;
 	scope.x = l_front->getFrame().x;
@@ -219,7 +262,7 @@ void CSprite::readJson(const char* _pathConfig)
 		const Value& fh = frames[itr->name.GetString()]["frame"]["h"];
 
 		//printf("%s %d %d %d %d\n ", n.c_str(), fx.GetInt(), fy.GetInt(), fw.GetInt(), fh.GetInt());
-		
+
 		frameTemp.setName(itr->name.GetString());
 		frameTemp.setFrame(fx.GetInt(), fy.GetInt(), fw.GetInt(), fh.GetInt());
 

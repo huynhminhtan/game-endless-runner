@@ -24,7 +24,7 @@ public:
 	
 	bool intitRenderer(SDL_Window*);
 	void DrawImage(CImage* image, int x, int y);
-
+	void DrawImage(CImage* image, int x, int y, float _scale);
 
 	void drawText(CText* _text, int x, int y);
 
