@@ -55,7 +55,7 @@ private:
 	void readJson(const char*);
 
 	int m_indexSprite;
-	
+	int m_fps;
 };
 
 

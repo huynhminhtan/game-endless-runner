@@ -10,6 +10,7 @@ CSprite::CSprite()
 	m_frameCurrent->setFrame(604, 239, 177, 196);
 
 	m_indexSprite = 0;
+	m_fps = 0;
 }
 
 CSprite::~CSprite()
@@ -137,7 +138,12 @@ void CSprite::drawSpriteAnimation(int x, int y, float _scale)
 
 	SDL_RenderCopy(CRenderer::getInstance()->getSDLRenderer(), m_texture, &scope, &dest);
 
-	m_indexSprite = (m_indexSprite + 1) % (8 + 1); // index end frame
+	if (m_fps > 3)
+	{
+		m_indexSprite = (m_indexSprite + 1) % (8 + 1); // index end frame
+		m_fps = 0;
+	}
+	m_fps++;
 }
 
 

@@ -73,13 +73,12 @@ void CPlayScence::update(float dt)
 	if (CInput::getInstance()->isPressKeyDown(SDLK_UP))
 	{
 		m_up = true;
-		m_down = false;
-
 	}
 
 	if (m_up)
 	{
-		m_posSprite.y -= 35;
+		if (!m_down)
+			m_posSprite.y -= 10;
 
 		printf("afasdf");
 
@@ -92,7 +91,7 @@ void CPlayScence::update(float dt)
 
 	if (m_down)
 	{
-		m_posSprite.y += 20;
+		m_posSprite.y += 5;
 
 		if (m_posSprite.y > 390)
 		{
@@ -114,7 +113,7 @@ void CPlayScence::render()
 	moveBackground(m_imgBgBush, m_posXBgBush, 465, 10, 3, 0.5);
 	moveBackground(m_imgBgPlatform, m_posXBgPlatform, 550, 5, 22, 0.7);
 
-	if (m_up)
+	if (m_up && !m_down)
 	{
 		m_sprite->setFrame("jump-up.png");
 		m_sprite->drawSprite(m_posSprite.x, m_posSprite.y, 0.8);
@@ -150,7 +149,7 @@ void CPlayScence::moveBackground(CImage* image, int& posX, int posY, int _buffer
 void CPlayScence::moveBackground(CImage* image, int& posX, int posY, int _buffer, int _numImageDraw, float _scale)
 {
 	CRenderer::getInstance()->DrawImage(image, posX -= _buffer, posY, _scale);
-	
+
 	int posXUpdate = posX;
 
 	for (int i = 1; i < _numImageDraw; i++)
@@ -163,7 +162,7 @@ void CPlayScence::moveBackground(CImage* image, int& posX, int posY, int _buffer
 	// set to posX
 	if (posX < -((image->getSize().w * _scale)))
 	{
-		posX = - _buffer;
+		posX = -_buffer;
 	}
 
 }
